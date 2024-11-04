@@ -30,14 +30,17 @@ int main() {
     cout << "The field is white: " << boolalpha << is_white << endl;
 
     // Математична функція
-    double input_x, result_y, numerator, denominator;
+    double input_x, result_y, numerator, denominator, log_2, cos_x, sin_x;
 
     // Введення значення для обчислення функції
     cout << "Enter the value of x for the mathematical function: ";
     cin >> input_x;
 
     // Чисельник: 3 * log2(fabs(pow(x, 2)) + sqrt(pow(x, 2) * pow(sin(input_x), 2) * pow(cos(input_x), 3)))
-    numerator = 3 * log2(fabs(pow(input_x, 2)) + sqrt(pow(input_x, 2) * pow(sin(input_x), 2) * pow(cos(input_x), 3)));
+    log_2 = 3 * log2(fabs(pow(input_x, 3)));
+    cos_x = pow(cos(input_x), 3);
+    sin_x = pow(sin(input_x), 2) * cos_x;
+    numerator = log_2 * sqrt(fabs(pow(input_x, 2) * sin_x));
 
     // Знаменник: cos(input_x) + 0.5 * sqrt(input_x + 5)
     denominator = cos(input_x) + 0.5 * sqrt(input_x + 5);
